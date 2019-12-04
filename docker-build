@@ -1,0 +1,16 @@
+#!/bin/bash
+
+source .env
+source docker-build.conf
+
+echo ""
+echo "IMAGE_TAG                 : ${IMAGE_TAG}"
+echo "KAFKA_VERSION             : ${KAFKA_VERSION}"
+echo "SCALA_VERSION             : ${SCALA_VERSION}"
+echo "APACHE_DOWNLOAD_MIRROR_URL: ${APACHE_DOWNLOAD_MIRROR_URL}"
+echo "KAFKA_DOWNLOAD_URL        : ${KAFKA_DOWNLOAD_URL}"
+echo ""
+
+docker build -t aldrin/kafka:${IMAGE_TAG} --build-arg KAFKA_DOWNLOAD_URL=${KAFKA_DOWNLOAD_URL} .  
+
+#::END::

@@ -1,0 +1,8 @@
+version: "3.2"
+services:
+  kafka:
+    image: aldrin/kafka:$IMAGE_TAG
+    ports:
+      - "2181:2181"
+      - "9092:9092"
+    hostname: $KAFKA_SERVER_HOSTNAME
