@@ -1,8 +1,10 @@
 version: "3.2"
 services:
   kafka:
-    image: aldrin/kafka:$IMAGE_TAG
+    image: ${IMAGE_NAME}:${IMAGE_TAG}
     ports:
-      - "2181:2181"
-      - "9092:9092"
-    hostname: $KAFKA_SERVER_HOSTNAME
+      - published: ${ZOOKEEPER_PORT}
+        target: 2181
+      - published: ${KAFKA_PORT}
+        target: 9092
+    hostname: ${KAFKA_HOSTNAME}
